@@ -4,20 +4,26 @@ disable_table_indexes = false
 nonzero_exit_errors = true
 startup = [
     #shell aliases BEGIN
-    #"alias gl = ls --long",
     "alias ee = exit",
-    #"alias ex = explorer .",
+    "alias l = ls",
+    "alias d = dotnet",
+    "alias r = cd ~/repositories/",
+    "alias sc = cd ~/sourcecode/",
+    "alias nc = cd ~/AppData/Roaming/nushell/nu/config/",
     "def ex [] {explorer}",
     #shell aliases END
 
     #git aliases BEGIN
+    "alias g = git",
     "def gl [] {git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD -n 5 | lines | split column »¦« hash message user email date}",
     #git aliases END
 
+    #other aliases BEGIN
     "def nudown [] {fetch https://api.github.com/repos/nushell/nushell/releases | get assets | select name download_count}",
     "def nuver [] {version | pivot key value}",
+    #other aliases BEGIN
     ]
-table_mode = "compactother" # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
+table_mode = "other" # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
 plugin_dirs = ["D:\\Src\\GitHub\\nu-plugin-lib\\samples\\Nu.Plugin.Len\\bin\\Debug\\netcoreapp3.1"]
 pivot_mode = "auto" # auto, always, never
 ctrlc_exit = false
